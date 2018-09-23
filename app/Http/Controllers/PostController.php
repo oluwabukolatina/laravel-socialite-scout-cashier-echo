@@ -11,7 +11,7 @@ class PostController extends Controller
     //
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['show', 'search']]);
+        $this->middleware('auth', ['except' => ['show', 'search', 'searchjs']]);
     }
     /**
      * Display a listing of the resource.
@@ -118,5 +118,9 @@ class PostController extends Controller
         }
 
         return view('posts.search')->with('results', $results);
+    }
+
+    public function searchJs(){
+        return view('posts.searchjs');
     }
 }

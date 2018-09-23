@@ -37,5 +37,7 @@ Route::get('post/update/{id}', 'PostController@update')->name('posts.update');
 
 Route::post('post/{id}', 'PostController@destroy')->name('posts.destroy');
 
-Route::get('posts/search', 'PostController@search')->name('posts.search');
+//Route::get('posts/search', 'PostController@search')->name('posts.search');
+
+Route::get('posts/search', 'PostController@searchJs')->name('posts.search');
 
