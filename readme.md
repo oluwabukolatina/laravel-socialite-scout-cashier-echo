@@ -13,7 +13,5 @@ This is an app that uses all of laravel's official packages, such as:
 
 - [Socialite](https://laravel.com/docs/routing).
 - [Cashier](https://laravel.com/docs/container).
-- [Scout]
-(https://laravel.com/docs/session). 
-- [Echo]
-(https://laravel.com/docs/eloquent).
+- [Echo](https://laravel.com/docs/routing).
+- [Scout](https://laravel.com/docs/container).
