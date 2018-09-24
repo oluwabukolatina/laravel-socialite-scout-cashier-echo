@@ -15,6 +15,20 @@
                     @endif
 
                     You are logged in!
+                    <h5>Subscribe:</h5>
+                    {{-- @if (!Auth::user()->subscribedToPlan('monthly', 'primary')) --}}
+                      <form action="your-server-side-code" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_KXojW6vzm2kfZytiD9guwFu5"
+    data-amount="999"
+    data-name="laravel-cashier"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto">
+  </script>
+</form>
+                    {{-- @endif --}}
                 </div>
             </div>
         </div>
