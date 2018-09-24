@@ -13,6 +13,9 @@
     <p class="lead">
       {{ $post->content }}
     </p>
+    <div class="alert alert-info">
+        @{{ count }}people reading rn
+    </div>
   </div>
 @endsection
 
