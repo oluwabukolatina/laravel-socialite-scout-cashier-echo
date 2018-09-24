@@ -16,14 +16,4 @@
   </div>
 @endsection
 
-@section('scripts')
-  <script>
-  let app = new Vue({
-      el: '#app',
-      data: {
-          viewers: [],
-          counters: 0
-      }
-  })
-  </script>
-@endsection
+

@@ -21,5 +21,27 @@ Vue.use(InstantSearch);
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+            viewers: [],
+            counters: 0
+        },
+        mounted() {
+            this.listen();
+        },
+    methods: {
+        listen() {
+            Echo.join('posts.' + '{{ $post->id }}')
+                .here((users) => {
+                    this.count = users.length;
+                })
+                .joining((users) => {
+                    this.count++;
+                })
+                .leaving((user) => {
+                    this.count--;
+                })
+        }
+    }
 });
+

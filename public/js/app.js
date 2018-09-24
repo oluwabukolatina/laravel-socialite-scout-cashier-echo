@@ -22878,7 +22878,28 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_instantsearch__["a" /* default */]);
 Vue.component('example-component', __webpack_require__(370));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app',
+    data: {
+        viewers: [],
+        counters: 0
+    },
+    mounted: function mounted() {
+        this.listen();
+    },
+
+    methods: {
+        listen: function listen() {
+            var _this = this;
+
+            Echo.join('posts.' + '{{ $post->id }}').here(function (users) {
+                _this.count = users.length;
+            }).joining(function (users) {
+                _this.count++;
+            }).leaving(function (user) {
+                _this.count--;
+            });
+        }
+    }
 });
 
 /***/ }),
