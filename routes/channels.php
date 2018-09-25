@@ -16,8 +16,7 @@ Broadcast::channel('App.User.{id}', function ($user, $id) {
 });
 
 //presence channels, bc events and users inside
-Broadcast::channel('App.Post.{id}', function ($user, $id) {
-    //return (int)$user->id === (int)$id;
+Broadcast::channel('post.{id}', function ($user, $id) {
     return [
         'id' => $user->id,
         'name' => $user->name

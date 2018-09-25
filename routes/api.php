@@ -13,11 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 
 Route::middleware('auth:api')->group(function() {
-    Route::get('posts/{post}/comments', 'CommentController@index');
-    Route::post('posts/{post}/comment', 'CommentController@store');
+    Route::get('post/{post}/comments', 'CommentController@index');
+    Route::post('post/{post}/comment', 'CommentController@store');
 });
+
+
