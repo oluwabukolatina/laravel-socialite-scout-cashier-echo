@@ -22881,11 +22881,13 @@ var app = new Vue({
     el: '#app',
     data: {
         viewers: [],
-        counters: 0
+        count: 0
     },
+
     mounted: function mounted() {
         this.listen();
     },
+
 
     methods: {
         listen: function listen() {
@@ -22893,7 +22895,7 @@ var app = new Vue({
 
             Echo.join('posts.' + '{{ $post->id }}').here(function (users) {
                 _this.count = users.length;
-            }).joining(function (users) {
+            }).joining(function (user) {
                 _this.count++;
             }).leaving(function (user) {
                 _this.count--;
@@ -22962,9 +22964,9 @@ window.Pusher = __webpack_require__(186);
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   broadcaster: 'pusher',
-  key: "76692cecd255b7a9c61f",
-  cluster: "eu",
-  encrypted: true
+  key: '76692cecd255b7a9c61f'
+  // cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+  // encrypted: true
 });
 
 /***/ }),

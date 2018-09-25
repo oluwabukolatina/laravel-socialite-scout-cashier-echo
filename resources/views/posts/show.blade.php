@@ -14,7 +14,7 @@
       {{ $post->content }}
     </p>
     <div class="alert alert-info">
-        @{{ count }}people reading rn
+        @{{ count }} persons reading rn
     </div>
   </div>
 @endsection

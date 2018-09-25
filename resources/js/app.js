@@ -24,23 +24,25 @@ const app = new Vue({
     el: '#app',
     data: {
             viewers: [],
-            counters: 0
+            count: 0
         },
+
         mounted() {
             this.listen();
         },
+
     methods: {
         listen() {
-            Echo.join('posts.' + '{{ $post->id }}')
+            Echo.join('posts.'+'{{ $post->id }}')
                 .here((users) => {
                     this.count = users.length;
                 })
-                .joining((users) => {
+                .joining((user) => {
                     this.count++;
                 })
                 .leaving((user) => {
                     this.count--;
-                })
+                });
         }
     }
 });
