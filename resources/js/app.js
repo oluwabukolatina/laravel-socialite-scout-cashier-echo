@@ -18,7 +18,7 @@ Vue.use(InstantSearch);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 const app = new Vue({
     el: '#app',
@@ -31,12 +31,14 @@ const app = new Vue({
         },
     methods: {
         listen() {
-            Echo.join('posts.'+'{{ $post->id }}')
+            Echo.join('post.'+'{{ $post->id }}')
                 .here((users) => {
                     this.count = users.length;
+                    this.viewers = users;
                 })
                 .joining((user) => {
                     this.count++;
+                    this.viewers.push(user);
                 })
                 .leaving((user) => {
                     this.count--;
